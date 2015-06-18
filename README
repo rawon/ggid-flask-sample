@@ -1,0 +1,7 @@
+Before running this app please install dependencies by running :
+
+pip install requirements.txt
+
+To run this app please run:
+
+python app.py

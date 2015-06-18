@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h1>Your Profile</h1>
+<table class="table">
+{% for key, value in session.user.iteritems() %}
+    {% if value %}
+    <tr>
+        {% if key == 'photo' %}
+            <td colspan="2">
+                <img src="{{ value }}" />
+            </td>
+        {% else %}
+        <th style="text-transform:capitalize">{{ key }}</th>
+        <td>{{ value }}</td>
+        {% endif %}
+    </tr>
+    {% endif %}
+{% endfor %}
+</table>
+{% endblock %}
