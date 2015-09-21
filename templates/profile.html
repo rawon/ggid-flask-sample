@@ -5,7 +5,7 @@
 {% for key, value in session.user.iteritems() %}
     {% if value %}
     <tr>
-        {% if key == 'photo' %}
+        {% if key == 'photo_thumbnail' %}
             <td colspan="2">
                 <img src="{{ value }}" />
             </td>
@@ -17,4 +17,31 @@
     {% endif %}
 {% endfor %}
 </table>
+<div class="row">
+<div class="col-md-6">
+    <script type="text/javascript" id="ggid-page-comment-embedder">
+      var ggidApplicationID = //your-app-numeric-id, for example: 0;
+      //optional, if not set will take window.location.href
+      //var ggidURL = 'http://example.com/my-beautiful-web-page';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        function async_load(){
+
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://gg-id.net/widgets/comment-widget'
+
+          var embedder = document.getElementById('ggid-page-comment-embedder');
+          embedder.parentNode.insertBefore(s, embedder);
+        }
+        if (window.attachEvent)
+          window.attachEvent('onload', async_load);
+        else
+          window.addEventListener('load', async_load, false);
+      })();
+    </script>
+</div>
+</div>
 {% endblock %}
