@@ -34,7 +34,15 @@ def login():
     if 'ggid_token' in session:
         return redirect(url_for('profile'))
     else:
-        return ggid.authorize(callback=url_for('authorized', _external=True), state='miracle')
+        return ggid.authorize(callback=url_for('authorized', _external=True))
+
+
+@app.route("/popup-login")
+def popup_login():
+    if 'ggid_token' in session:
+        return redirect(url_for('profile'))
+    else:
+        return ggid.authorize(state="popup", callback=url_for('authorized', _external=True))
 
 
 @app.route("/logout")
@@ -66,8 +74,14 @@ def authorized():
     me = ggid.get('users/me')
     session['user'] = me.data
 
-    return redirect(url_for('profile'))
+    if request.args.get('state') == 'popup':
+        return redirect(url_for('popup'))
+    else:
+        return redirect(url_for('profile'))
 
+@app.route("/popup")
+def popup():
+    return render_template('popup.html')
 
 @app.route("/me")
 def profile():

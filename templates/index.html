@@ -2,4 +2,15 @@
 {% block body %}
 <p>This app will demonstrate OAuth2 to GG-ID</p>
 <p>Please <a href="{{ url_for('login') }}">login with GG-ID</a> to continue.</p>
+
+<h3>Popup Login</h3>
+<button id="popup-login">Login</button>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#popup-login").click(function(){
+            window.open("{{ url_for('popup_login') }}", "", "width=500, height=800");
+        });
+    });
+</script>
+
 {% endblock %}
