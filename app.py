@@ -16,11 +16,11 @@ ggid = oauth.remote_app(
     consumer_key='your app id', #change this accordingly
     consumer_secret='your app secret', #change this accordingly
     request_token_params={'scope': 'all'},
-    base_url='https://gg-id.net/api/',
+    base_url='https://gate.co.id/api/',
     request_token_url=None,
     access_token_method='POST',
-    access_token_url='https://gg-id.net/o/token/',
-    authorize_url='https://gg-id.net/o/authorize/?app=x' #change this accordingly
+    access_token_url='https://gate.co.id/o/token/',
+    authorize_url='https://gate.co.id/o/authorize/?app=x' #change this accordingly
 )
 
 
